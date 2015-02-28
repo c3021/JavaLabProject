@@ -60,7 +60,7 @@ public class Post {
 	}
 	
 	/**
-	 * 
+	 * Output this object in string format
 	 */
 	@Override
 	public String toString(){

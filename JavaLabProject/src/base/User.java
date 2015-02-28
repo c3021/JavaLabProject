@@ -16,7 +16,7 @@ public class User {
 	
 	/**
 	 * 
-	 * @return
+	 * @return Id of the user
 	 */
 	public int getId() {
 		return id;
@@ -63,7 +63,7 @@ public class User {
 	}
 	
 	/**
-	 * 
+	 * Output this object in string format
 	 */
 	@Override
 	public String toString(){

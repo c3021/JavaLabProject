@@ -2,7 +2,6 @@ package base;
 
 import java.util.Date;
 
-
 public class FriendsPost extends Post {
 	
 	/**
@@ -33,7 +32,7 @@ public class FriendsPost extends Post {
 	}
 
 	/**
-	 * 
+	 * Output this object in string format
 	 */
 	@Override
 	public String toString(){

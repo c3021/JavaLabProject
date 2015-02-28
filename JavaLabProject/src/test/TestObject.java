@@ -7,7 +7,7 @@ import java.util.Date;
 
 /**
  * 
- * Test User.java, Post.java, FriendsPost.java
+ * Testing Classes : User.java, Post.java, FriendsPost.java
  *
  */
 public class TestObject {
