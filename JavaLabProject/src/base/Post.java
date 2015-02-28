@@ -1,9 +1,18 @@
-
-//package base;
+package base;
 
 import java.util.Date;
 
 public class Post {
+	
+	/**
+	 * Constructor
+	 * @param date
+	 * @param content
+	 */
+	public Post(Date date, String content){
+		this.date = date;
+		this.content = content;
+	}
 	
 	/**
 	 * 
@@ -38,22 +47,6 @@ public class Post {
 	}
 	
 	/**
-	 * Constructor
-	 * @param date
-	 * @param content
-	 */
-	public Post(Date date, String content){
-		this.date = date;
-		this.content = content;
-	}
-	
-	/**
-	 * 
-	 */
-	public String toString(){
-		return date.toString() + "\n" + content ;
-	}
-	/**
 	 * 
 	 * @param keyword
 	 * @return
@@ -69,11 +62,20 @@ public class Post {
 	/**
 	 * 
 	 */
+	@Override
+	public String toString(){
+		return date.toString() + "\n" + content ;
+	}
+	
+	/**
+	 * Check whether this object equals to o
+	 */
+	@Override
 	public boolean equals(Object o){
 		
 		if (this.hashCode() == o.hashCode()) return true;
 		
-		if (o == null) return false;
+		//TODO if (o == null) return false;
 		
 		if (this.getClass().equals(o.getClass())){
 			Post temp = (Post) o;
@@ -81,11 +83,13 @@ public class Post {
 				return true;
 			else return false;
 		}
+		return false;
 	}
 	
 	/**
 	 * 
 	 */
+	@Override
 	public int hashCode(){
 		int a = date.hashCode();
 		int b= content.hashCode();
@@ -94,7 +98,6 @@ public class Post {
 	
 	private Date date;
 	private String content;
-
 	
 }
 

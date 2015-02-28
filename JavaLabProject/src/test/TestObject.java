@@ -1,6 +1,15 @@
+package test;
+
+import base.User;
+import base.FriendsPost;
+
 import java.util.Date;
 
-
+/**
+ * 
+ * Test User.java, Post.java, FriendsPost.java
+ *
+ */
 public class TestObject {
 
 	public static void main(String[] args) {
