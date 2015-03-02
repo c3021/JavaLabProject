@@ -10,7 +10,7 @@ public class FriendsPost extends Post {
 	 * @param content
 	 * @param friend
 	 */
-	public FriendsPost(Date date, String content, User friend){
+	public FriendsPost(Date date, String content, User friend) {
 		super(date, content);
 		this.friend = friend;
 	}
@@ -35,7 +35,7 @@ public class FriendsPost extends Post {
 	 * Output this object in string format
 	 */
 	@Override
-	public String toString(){
+	public String toString() {
 		return friend.toString() + "\n" + super.toString() ;
 	}
 	
@@ -43,7 +43,7 @@ public class FriendsPost extends Post {
 	 * Check whether this object equals to o
 	 */
 	@Override
-	public boolean equals(Object o){
+	public boolean equals(Object o) {
 		if (this.hashCode() == o.hashCode()) return true;
 		
 		//TODO if (o == null) return false;
@@ -60,7 +60,7 @@ public class FriendsPost extends Post {
 	 * 
 	 */
 	@Override
-	public int hashCode(){
+	public int hashCode() {
 		return friend.hashCode() * 11;
 	}
 	

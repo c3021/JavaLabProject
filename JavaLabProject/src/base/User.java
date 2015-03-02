@@ -8,7 +8,7 @@ public class User {
 	 * @param name
 	 * @param email
 	 */
-	public User(int id, String name, String email){
+	public User(int id, String name, String email) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
@@ -66,7 +66,7 @@ public class User {
 	 * Output this object in string format
 	 */
 	@Override
-	public String toString(){
+	public String toString() {
 		return "User [userId=" + id + ", userName=" + name + ", userEmail=" + email +"]" ;
 	}
 	
@@ -74,7 +74,7 @@ public class User {
 	 * Check whether this object equals to o
 	 */
 	@Override
-	public boolean equals(Object o){
+	public boolean equals(Object o) {
 		if (this.hashCode() == o.hashCode()) return true;
 		
 		//TODO if (o == null) return false;
@@ -92,7 +92,7 @@ public class User {
 	 * 
 	 */
 	@Override
-	public int hashCode(){
+	public int hashCode() {
 		return name.hashCode() * 17 + email.hashCode();
 	}//XXX id.hashCode() * 11 + 
 	

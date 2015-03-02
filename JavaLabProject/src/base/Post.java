@@ -9,7 +9,7 @@ public class Post {
 	 * @param date
 	 * @param content
 	 */
-	public Post(Date date, String content){
+	public Post(Date date, String content) {
 		this.date = date;
 		this.content = content;
 	}
@@ -51,7 +51,7 @@ public class Post {
 	 * @param keyword
 	 * @return
 	 */
-	public boolean contains(String keyword){
+	public boolean contains(String keyword) {
 		String[] wordArr = content.split(" ");
 		for (String word: wordArr){
 			if (word.equals(keyword)) return true;
@@ -63,7 +63,7 @@ public class Post {
 	 * Output this object in string format
 	 */
 	@Override
-	public String toString(){
+	public String toString() {
 		return date.toString() + "\n" + content ;
 	}
 	
@@ -71,7 +71,7 @@ public class Post {
 	 * Check whether this object equals to o
 	 */
 	@Override
-	public boolean equals(Object o){
+	public boolean equals(Object o) {
 		
 		if (this.hashCode() == o.hashCode()) return true;
 		
@@ -90,7 +90,7 @@ public class Post {
 	 * 
 	 */
 	@Override
-	public int hashCode(){
+	public int hashCode() {
 		int a = date.hashCode();
 		int b= content.hashCode();
 		return a*17 + b;
