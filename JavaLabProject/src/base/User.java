@@ -75,9 +75,9 @@ public class User {
 	 */
 	@Override
 	public boolean equals(Object o) {
-		if (this.hashCode() == o.hashCode()) return true;
+		if (o == null) return false;
 		
-		//TODO if (o == null) return false;
+		if (this.hashCode() == o.hashCode()) return true;
 		
 		if (this.getClass().equals(o.getClass())){
 			User temp = (User) o;
