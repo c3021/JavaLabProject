@@ -44,9 +44,10 @@ public class FriendsPost extends Post {
 	 */
 	@Override
 	public boolean equals(Object o) {
-		if (this.hashCode() == o.hashCode()) return true;
+		if (o == null) return false;
 		
-		//TODO if (o == null) return false;
+		if (this.hashCode() == o.hashCode()) return true;
+
 		if (this.getClass().equals(o.getClass())){
 			FriendsPost temp = (FriendsPost) o;
 			if (this.friend.equals(temp.getFriend()))
