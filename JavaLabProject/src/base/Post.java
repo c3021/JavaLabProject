@@ -72,10 +72,9 @@ public class Post {
 	 */
 	@Override
 	public boolean equals(Object o) {
+		if (o == null) return false;
 		
 		if (this.hashCode() == o.hashCode()) return true;
-		
-		//TODO if (o == null) return false;
 		
 		if (this.getClass().equals(o.getClass())){
 			Post temp = (Post) o;
