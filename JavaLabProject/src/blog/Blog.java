@@ -104,7 +104,6 @@ public class Blog {
 				if (p.contains(someone))
 					System.out.println(p);
 			}
-			
 		}
 	}
 	/**
