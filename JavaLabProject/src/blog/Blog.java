@@ -1,12 +1,16 @@
 package blog;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import base.Post;
 import base.User;
 
 public class Blog {
-
+	
+	private User user;
+	private ArrayList<Post> allPosts;
+	
 	/**
 	 * Constructor
 	 * @param user
@@ -63,6 +67,18 @@ public class Blog {
 	}
 	
 	/**
+	 * Delete a post from the blog (Index starts from 1)
+	 */
+	public void delete(int index) {
+		if (--index > -1 && index < allPosts.size()){
+			allPosts.remove(index);
+		}
+		else {
+			System.out.println("Illegal deletion. (List index out of bound)");
+		}
+	}
+	
+	/**
 	 * list all posts in the blog
 	 */
 	public void list() {
@@ -78,18 +94,19 @@ public class Blog {
 		*/
 	}
 	
-	/**
-	 * Delete a post from the blog (Index starts from 1)
-	 */
-	public void delete(int index) {
-		if (--index > -1 && index < allPosts.size()){
-			allPosts.remove(index);
-		}
-		else {
-			System.out.println("Illegal deletion. (List index out of bound)");
+	public void search (int month, String someone) {
+		Calendar cal = Calendar.getInstance();
+		//search from all posts
+		for (Post p: allPosts) {
+			//get the current post's month (note that Calendar.Month starts with 0 (Jan), not 1)
+			cal.setTime(p.getDate());
+			if ((month - 1) == cal.get(Calendar.MONTH)) {
+				if (p.contains(someone))
+					System.out.println(p);
+			}
+			
 		}
 	}
-	
 	/**
 	 * 
 	 */
@@ -123,7 +140,5 @@ public class Blog {
 	public int hashCode() {
 		return user.hashCode() * 11 + allPosts.hashCode();
 	}
-	
-	private User user;
-	private ArrayList<Post> allPosts;
+
 }

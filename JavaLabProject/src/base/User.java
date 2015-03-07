@@ -1,6 +1,10 @@
 package base;
 
-public class User {
+public class User implements Comparable<User>{
+	
+	private int userId;
+	private String userName;
+	private String userEmail;
 	
 	/**
 	 * Constructor
@@ -9,57 +13,74 @@ public class User {
 	 * @param email
 	 */
 	public User(int id, String name, String email) {
-		this.id = id;
-		this.name = name;
-		this.email = email;
+		this.userId = id;
+		this.userName = name;
+		this.userEmail = email;
 	}
 	
 	/**
 	 * 
 	 * @return Id of the user
 	 */
-	public int getId() {
-		return id;
+	public int getUserId() {
+		return userId;
 	}
-	
+
 	/**
 	 * 
-	 * @param id
+	 * @param userId
 	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	/**
-	 * 
-	 * @return
-	 */
-	public String getName() {
-		return name;
-	}
-	
-	/**
-	 * 
-	 * @param name
-	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	
 	/**
 	 * 
 	 * @return
 	 */
-	public String getEmail() {
-		return email;
+	public String getUserName() {
+		return userName;
 	}
-	
+
 	/**
 	 * 
-	 * @param email
+	 * @param userName
 	 */
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	/**
+	 * 
+	 * @param userEmail
+	 */
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
+	/**
+	 * Return 1 if this user・s ID is greater than u・s ID
+	 * Return -1 if this user・s ID is less than u・s ID
+	 * Return 0 if this user・s ID equals to u・s ID
+	 */
+	@Override
+	public int compareTo(User u) {
+		if (u == null)
+			return -2;
+		else if (userId > u.getUserId())
+			return 1;
+		else if (userId < u.getUserId())
+			return -1;
+		else 
+			return 0;
 	}
 	
 	/**
@@ -67,7 +88,7 @@ public class User {
 	 */
 	@Override
 	public String toString() {
-		return "User [userId=" + id + ", userName=" + name + ", userEmail=" + email +"]" ;
+		return "User [userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail +"]" ;
 	}
 	
 	/**
@@ -81,7 +102,7 @@ public class User {
 		
 		if (this.getClass().equals(o.getClass())){
 			User temp = (User) o;
-			if (this.name.equals(temp.getName()) && this.email.equals(temp.getEmail()))
+			if (this.userId == temp.getUserId() && this.userName.equals(temp.getUserName()) && this.userEmail.equals(temp.getUserEmail()))
 				return true;
 			else return false;
 		}
@@ -93,10 +114,7 @@ public class User {
 	 */
 	@Override
 	public int hashCode() {
-		return name.hashCode() * 17 + email.hashCode();
+		return userName.hashCode() * 17 + userEmail.hashCode();
 	}//XXX id.hashCode() * 11 + 
 	
-	private int id;
-	private String name;
-	private String email;
 }
