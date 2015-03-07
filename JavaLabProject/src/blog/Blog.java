@@ -114,30 +114,36 @@ public class Blog {
 		return user.toString() + "\n" + allPosts.size() + "post(s) in this blog";//allPosts.toString() ;
 	}
 	
-	/**
-	 * Check whether this object equals to o
-	 */
 	@Override
-	public boolean equals(Object o) {
-		if (o == null) return false;
-		
-		if (this.hashCode() == o.hashCode()) return true;
-		
-		if (this.getClass().equals(o.getClass())){
-			Blog temp = (Blog) o;
-			if (this.user.equals(temp.getUser()) && this.allPosts.equals(temp.getAllPosts()))
-				return true;
-			else return false;
-		}
-		return false;
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Blog other = (Blog) obj;
+		if (allPosts == null) {
+			if (other.allPosts != null)
+				return false;
+		} else if (!allPosts.equals(other.allPosts))
+			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
+			return false;
+		return true;
 	}
 	
-	/**
-	 * 
-	 */
 	@Override
 	public int hashCode() {
-		return user.hashCode() * 11 + allPosts.hashCode();
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((allPosts == null) ? 0 : allPosts.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		return result;
 	}
 
 }

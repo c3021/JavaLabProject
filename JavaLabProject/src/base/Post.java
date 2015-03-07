@@ -89,32 +89,35 @@ public class Post implements Comparable<Post>{
 		return date.toString() + "\n" + content ;
 	}
 	
-	/**
-	 * Check whether this object equals to o
-	 */
 	@Override
-	public boolean equals(Object o) {
-		if (o == null) return false;
-		
-		if (this.hashCode() == o.hashCode()) return true;
-		
-		if (this.getClass().equals(o.getClass())){
-			Post temp = (Post) o;
-			if (this.date.equals(temp.getDate()) && this.content.equals(temp.getContent()))
-				return true;
-			else return false;
-		}
-		return false;
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Post other = (Post) obj;
+		if (content == null) {
+			if (other.content != null)
+				return false;
+		} else if (!content.equals(other.content))
+			return false;
+		if (date == null) {
+			if (other.date != null)
+				return false;
+		} else if (!date.equals(other.date))
+			return false;
+		return true;
 	}
 	
-	/**
-	 * 
-	 */
 	@Override
 	public int hashCode() {
-		int a = date.hashCode();
-		int b= content.hashCode();
-		return a*17 + b;
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((content == null) ? 0 : content.hashCode());
+		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		return result;
 	}
 	
 }

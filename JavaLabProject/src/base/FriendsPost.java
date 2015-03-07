@@ -39,30 +39,30 @@ public class FriendsPost extends Post {
 		return friend.toString() + "\n" + super.toString() ;
 	}
 	
-	/**
-	 * Check whether this object equals to o
-	 */
-	@Override
-	public boolean equals(Object o) {
-		if (o == null) return false;
-		
-		if (this.hashCode() == o.hashCode()) return true;
 
-		if (this.getClass().equals(o.getClass())){
-			FriendsPost temp = (FriendsPost) o;
-			if (this.friend.equals(temp.getFriend()))
-				return true;
-			else return false;
-			}
-		return false;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FriendsPost other = (FriendsPost) obj;
+		if (friend == null) {
+			if (other.friend != null)
+				return false;
+		} else if (!friend.equals(other.friend))
+			return false;
+		return true;
 	}
 	
-	/**
-	 * 
-	 */
 	@Override
 	public int hashCode() {
-		return friend.hashCode() * 11;
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((friend == null) ? 0 : friend.hashCode());
+		return result;
 	}
 	
 	private User friend;

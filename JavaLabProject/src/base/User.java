@@ -91,30 +91,40 @@ public class User implements Comparable<User>{
 		return "User [userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail +"]" ;
 	}
 	
-	/**
-	 * Check whether this object equals to o
-	 */
 	@Override
-	public boolean equals(Object o) {
-		if (o == null) return false;
-		
-		if (this.hashCode() == o.hashCode()) return true;
-		
-		if (this.getClass().equals(o.getClass())){
-			User temp = (User) o;
-			if (this.userId == temp.getUserId() && this.userName.equals(temp.getUserName()) && this.userEmail.equals(temp.getUserEmail()))
-				return true;
-			else return false;
-		}
-		return false;
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (userEmail == null) {
+			if (other.userEmail != null)
+				return false;
+		} else if (!userEmail.equals(other.userEmail))
+			return false;
+		if (userId != other.userId)
+			return false;
+		if (userName == null) {
+			if (other.userName != null)
+				return false;
+		} else if (!userName.equals(other.userName))
+			return false;
+		return true;
 	}
 	
-	/**
-	 * 
-	 */
 	@Override
 	public int hashCode() {
-		return userName.hashCode() * 17 + userEmail.hashCode();
-	}//XXX id.hashCode() * 11 + 
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((userEmail == null) ? 0 : userEmail.hashCode());
+		result = prime * result + userId;
+		result = prime * result
+				+ ((userName == null) ? 0 : userName.hashCode());
+		return result;
+	}
 	
 }
