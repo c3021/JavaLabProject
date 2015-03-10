@@ -72,9 +72,9 @@ public class User implements Comparable<User>{
 	 * Return 0 if this user¡¦s ID equals to u¡¦s ID
 	 */
 	@Override
-	public int compareTo(User u) {
+	public int compareTo(User u) throws NullPointerException {
 		if (u == null)
-			return -2;
+			throw new NullPointerException();
 		else if (userId > u.getUserId())
 			return 1;
 		else if (userId < u.getUserId())

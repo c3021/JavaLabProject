@@ -72,13 +72,9 @@ public class Post implements Comparable<Post>{
 	@Override
 	public int compareTo(Post p) {
 		if (p == null)
-			return -2;
-		else if (date.compareTo(p.getDate()) < 0)//else if (date.before(p.getDate()))
-			return -1;
-		else if (date.compareTo(p.getDate()) > 0)//else if (date.after(p.getDate()))
-			return 1;
+			throw new NullPointerException();
 		else
-			return 0;
+			return date.compareTo(p.getDate());
 	}
 	
 	/**
