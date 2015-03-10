@@ -73,6 +73,7 @@ public class User implements Comparable<User>{
 	 */
 	@Override
 	public int compareTo(User u) throws NullPointerException {
+		//assert u != null : "";
 		if (u == null)
 			throw new NullPointerException();
 		else if (userId > u.getUserId())
