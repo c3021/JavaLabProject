@@ -57,7 +57,7 @@ public class TestIO {
 		// ******************Task 2: load a blog from a file***********
 		// Comment the code below if you can't finish this task
 		System.out.println("\n***Loading a blog from an external file...***");
-		String loadfilepath="E:\\eclipse\\LabRepo\\JavaLabProject\\src\\"+user.getUserName()+".blog";
+		String loadfilepath="E:\\eclipse\\LabRepo\\JavaLabProject\\src\\test\\"+user.getUserName()+".blog";
 		    //if the path is not accessible, change it to any path you can access
 		System.out.println("File path: "+loadfilepath);
 		Blog newblog = new Blog(user);
