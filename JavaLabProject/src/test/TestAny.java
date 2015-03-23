@@ -26,6 +26,7 @@ public class TestAny {
 		int z(int a);
 	}
 	public class t1 {
+		//TODO Q: final public static int sf() {return (int)c1;}
 		private int v1;
 		final int ret1() { System.out.println(" t1 ");return this.v1;}
 		public int get1() {
@@ -33,7 +34,6 @@ public class TestAny {
 		}
 		final public char c;
 		final static public char c1 ='m';
-
 		public t1() {
 			c = 'p';
 		}
@@ -83,7 +83,13 @@ public class TestAny {
 		
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		
+		ArrayList<Integer> ac =new ArrayList();
+		System.out.println(ac.getClass());
+		
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		
 		ArrayList abcc =new ArrayList();
+		System.out.println(abcc.getClass());
 		abcc.add(new TestAny());
 		abcc.add(new Integer(2));
 		System.out.println(abcc.get(0).getClass());
