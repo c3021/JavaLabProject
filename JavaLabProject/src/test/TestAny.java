@@ -1,5 +1,7 @@
 package test;
 
+import java.util.ArrayList;
+
 public class TestAny {
 
 	public static void passBy(int a) {
@@ -7,8 +9,87 @@ public class TestAny {
 		a--;
 		System.out.println("a in method passBy after -- = " + a);
 	}
+	public interface a1 {
+		void i();
+		int z(int a);
+	}
+	public interface b1 {
+		void i();
+		int z(int a);
+	}
+	public interface c1 {
+		int i();
+		int z(int a);
+	}
+	public interface d1<T> extends a1,b1{
+		void i();
+		int z(int a);
+	}
+	public class t1 {
+		private int v1;
+		final int ret1() { System.out.println(" t1 ");return this.v1;}
+		public int get1() {
+			return v1;
+		}
+		final public char c;
+		final static public char c1 ='m';
+
+		public t1() {
+			c = 'p';
+		}
+		public t1(char d) {
+			c = d;
+		}
+		private final int pint() { return 1;}
+	}
+	public class t2<T> extends t1 implements a1,b1,d1<T> {
+		public char c;
+		public char v1;
+		public T vt;
+		public char getV1() {
+			return v1;
+		}
+		final static public char c1 ='f';
+		public void setV1(char v) {
+			v1 = v;		}
+		public void i() {}
+		private int pint() { return 2;}
+		//private int pint() { return super.pint();}
+		int ret1(ArrayList<Integer> a) { System.out.println(" t2 ");return this.v1;}
+		int ret2() { System.out.println(" t2 "); return this.v1;}
+		public int z(int a) {
+			return 0;
+			}
+	}
+	
 	
 	public static void main(String[] args) {
+		TestAny t = new TestAny();
+		TestAny.t2<Object> abc = t.new t2<Object>();
+		System.out.println(abc.c1);
+		abc.v1 =10;
+		abc.ret1();
+		System.out.println(abc.pint());
+		System.out.println(abc.getClass());
+		System.out.println((abc.vt="S").getClass());
+		
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+				
+		TestAny.t1 bc = t.new t2<Integer>();
+		System.out.println(bc.getClass());
+		TestAny.t2 bcc = t.new t2();
+		System.out.println(bcc.getClass());
+		System.out.println((bcc.vt='s').getClass());
+		
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		
+		ArrayList abcc =new ArrayList();
+		abcc.add(new TestAny());
+		abcc.add(new Integer(2));
+		System.out.println(abcc.get(0).getClass());
+		System.out.println(abcc.get(1).getClass());
+		Object i = abcc.get(1);
+		System.out.println(i.getClass());
 		// TODO Auto-generated method stub
 		
 		//Case 3-1 & 3-2 tested result are String.repace and String.replaceAll are the same
