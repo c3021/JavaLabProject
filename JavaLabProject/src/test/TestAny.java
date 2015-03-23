@@ -1,5 +1,12 @@
 package test;
 
+//TODO Q1
+import java.*;
+import t1.*;
+import t2.*;
+import f1.*;
+import f2.*;
+
 import java.util.ArrayList;
 
 public class TestAny {
@@ -26,7 +33,8 @@ public class TestAny {
 		int z(int a);
 	}
 	public class t1 {
-		//TODO Q: final public static int sf() {return (int)c1;}
+		//TODO Q2: final public static int sf() {return (int)c1;}
+		//TODO Q3: <T> > <T=String>? default type
 		private int v1;
 		final int ret1() { System.out.println(" t1 ");return this.v1;}
 		public int get1() {
@@ -64,6 +72,17 @@ public class TestAny {
 	
 	
 	public static void main(String[] args) {
+		//TODO Q4: same name for a package and a class
+
+		//Z ta = new Z();
+		//t1.Z ta = new Z();
+		
+		
+		//f1.X x = new f2.X(); CAN'T
+		//X x = new X(); CAN'T
+		f1.X xa= new f1.X();
+		f2.X xb= new f2.X();
+		
 		TestAny t = new TestAny();
 		TestAny.t2<Object> abc = t.new t2<Object>();
 		System.out.println(abc.c1);
@@ -79,6 +98,7 @@ public class TestAny {
 		System.out.println(bc.getClass());
 		TestAny.t2 bcc = t.new t2();
 		System.out.println(bcc.getClass());
+		//Q5: how to call bcc.super.c1 ? (method & var)
 		System.out.println((bcc.vt='s').getClass());
 		
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~");
