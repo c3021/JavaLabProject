@@ -28,7 +28,7 @@ public class TestAny {
 		int i();
 		int z(int a);
 	}
-	public interface d1<T> extends a1,b1{
+	public interface d1<T> extends a1,b1{//can't extends c1
 		void i();
 		int z(int a);
 	}
