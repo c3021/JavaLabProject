@@ -60,7 +60,7 @@ public class BlogGUI {
 	
 	public void setWindow() {
 		//private JFrame?
-		JFrame mainFrame = new JFrame("Your Name");
+		mainFrame = new JFrame("Your Name");
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setSize(size,size);
 		mainFrame.setLayout(new BorderLayout());
