@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.plaf.basic.BasicBorders;
 
 public class BlogGUI implements ActionListener{
 	
@@ -59,21 +60,25 @@ public class BlogGUI implements ActionListener{
 		post.addActionListener(this);
 		
 		Textpanel = new JPanel();
+		Textpanel.setBorder(new  BasicBorders.FieldBorder(Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW));
 		
 		TextButtonPanel = new JPanel();
 		//TextButtonPanel.setSize(size, size/2);
 		
 		label = new JLabel();
 		label.setText("You can still input " + charRemain + " characters");
+		label.setBorder(new BasicBorders.SplitPaneBorder(Color.GREEN, Color.GREEN));
 		Textpanel.setLayout(new BorderLayout());
 		Textpanel.add(label, BorderLayout.NORTH);
 		Textpanel.add(postTextArea, BorderLayout.CENTER);
 		Textpanel.add(TextButtonPanel, BorderLayout.SOUTH);
+		Textpanel.setBorder(new BasicBorders.SplitPaneBorder(Color.YELLOW, Color.CYAN));
 		
 		//TextButtonPanel.setLayout(new BorderLayout());
 		//TextButtonPanel.add(refresh, BorderLayout.WEST);
 		//TextButtonPanel.add(post, BorderLayout.EAST);
 		TextButtonPanel.setLayout(new GridLayout(1, 2));
+		TextButtonPanel.setBorder(new BasicBorders.SplitPaneBorder(Color.YELLOW, Color.CYAN));
 		//TextButtonPanel.setLayout(new GridLayout());
 		TextButtonPanel.add(refresh);
 		TextButtonPanel.add(post);
@@ -85,12 +90,12 @@ public class BlogGUI implements ActionListener{
 	 */
 	public void setWindow() {
 		//private JFrame?
-		mainFrame = new JFrame("Your Name");
+		mainFrame = new JFrame("Micro Blog");
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setSize(size,size);
-		mainFrame.setLayout(new BorderLayout());
-		mainFrame.add(Textpanel, BorderLayout.NORTH);
-		mainFrame.add(postContent, BorderLayout.CENTER);
+		mainFrame.setLayout(new GridLayout(2, 1));
+		mainFrame.add(Textpanel);
+		mainFrame.add(postContent);
 		//mainFrame.setLayout(new BoxLayout(Component.CENTER_ALIGNMENT, BoxLayout.Y_AXIS));
 		mainFrame.setVisible(true);
 	}
