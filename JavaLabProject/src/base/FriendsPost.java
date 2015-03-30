@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class FriendsPost extends Post {
 	
+	private User friend;
+	
 	/**
 	 * Constructor
 	 * @param date
@@ -39,7 +41,9 @@ public class FriendsPost extends Post {
 		return friend.toString() + "\n" + super.toString() ;
 	}
 	
-
+	/**
+	 * 
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -57,6 +61,9 @@ public class FriendsPost extends Post {
 		return true;
 	}
 	
+	/**
+	 * 
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -64,7 +71,5 @@ public class FriendsPost extends Post {
 		result = prime * result + ((friend == null) ? 0 : friend.hashCode());
 		return result;
 	}
-	
-	private User friend;
 	
 }

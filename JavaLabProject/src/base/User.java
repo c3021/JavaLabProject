@@ -94,6 +94,9 @@ public class User implements Comparable<User>, Serializable{
 		return "User [userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail +"]" ;
 	}
 	
+	/**
+	 * 
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -118,6 +121,9 @@ public class User implements Comparable<User>, Serializable{
 		return true;
 	}
 	
+	/**
+	 * 
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;

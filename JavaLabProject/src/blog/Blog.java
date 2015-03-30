@@ -147,6 +147,11 @@ public class Blog implements Serializable {
 		 */
 	}
 
+	/**
+	 * 
+	 * @param month
+	 * @param someone
+	 */
 	public void search(int month, String someone) {
 		Calendar cal = Calendar.getInstance();
 		// search from all posts
@@ -170,6 +175,9 @@ public class Blog implements Serializable {
 				+ "post(s) in this blog";// allPosts.toString() ;
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -192,6 +200,9 @@ public class Blog implements Serializable {
 		return true;
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;

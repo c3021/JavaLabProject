@@ -86,6 +86,9 @@ public class Post implements Comparable<Post>, Serializable{
 		return date.toString() + "\n" + content ;
 	}
 	
+	/**
+	 * 
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -108,6 +111,9 @@ public class Post implements Comparable<Post>, Serializable{
 		return true;
 	}
 	
+	/**
+	 * 
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;

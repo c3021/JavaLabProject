@@ -1,7 +1,10 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,9 +13,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class BlogGUI {
+public class BlogGUI implements ActionListener{
+	
 	private int size;
-	private int charLimit;
+	private final int charLimit = 160;
+	private int charRemain;
+	
 	private JFrame mainFrame;
 	private JTextArea postTextArea;
 	private JTextField postContent;
@@ -22,19 +28,35 @@ public class BlogGUI {
 	private JPanel Textpanel;
 	private JPanel TextButtonPanel;
 	
+	/**
+	 * Constructor
+	 */
 	public BlogGUI() {
 		size = 300;
-		charLimit =140;
+		charRemain =charLimit;
 		
 		postTextArea = new JTextArea();
+		//postTextArea.setBorder();
+		postTextArea.setBackground(new Color(255, 255, 200));
 		//postTextArea.setSize(size, size/2);
+		
 		postContent = new JTextField();
 		//postContent.setSize(size, size/2);
+		postContent.setText("Here is put my posts!");
+		postContent.setBackground(new Color(240, 240, 240));
+		postContent.addActionListener(this);
 		
+		//refresh button
 		refresh = new JButton();
 		refresh.setText("refresh");
+		refresh.setBackground(new Color(180, 200, 220));
+		refresh.addActionListener(this);
+		
+		//post button
 		post = new JButton();
 		post.setText("post");
+		post.setBackground(new Color(100, 230, 230));
+		post.addActionListener(this);
 		
 		Textpanel = new JPanel();
 		
@@ -42,7 +64,7 @@ public class BlogGUI {
 		//TextButtonPanel.setSize(size, size/2);
 		
 		label = new JLabel();
-		label.setText("You can still input " + charLimit + " characters");
+		label.setText("You can still input " + charRemain + " characters");
 		Textpanel.setLayout(new BorderLayout());
 		Textpanel.add(label, BorderLayout.NORTH);
 		Textpanel.add(postTextArea, BorderLayout.CENTER);
@@ -58,6 +80,9 @@ public class BlogGUI {
 		
 	}
 	
+	/**
+	 * 
+	 */
 	public void setWindow() {
 		//private JFrame?
 		mainFrame = new JFrame("Your Name");
@@ -65,9 +90,35 @@ public class BlogGUI {
 		mainFrame.setSize(size,size);
 		mainFrame.setLayout(new BorderLayout());
 		mainFrame.add(Textpanel, BorderLayout.NORTH);
-		mainFrame.add(postContent, BorderLayout.SOUTH);
+		mainFrame.add(postContent, BorderLayout.CENTER);
+		//mainFrame.setLayout(new BoxLayout(Component.CENTER_ALIGNMENT, BoxLayout.Y_AXIS));
 		mainFrame.setVisible(true);
 	}
+	
+	/**
+	 * 
+	 */
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == post) {
+			postContent.setText("You click POST!");
+			//postContent.setText(postTextArea.getText());
+			}
+		else if (e.getSource() == refresh) {
+			postContent.setText("You click REFRESH!");
+			}
+		}
+	/*
+	if(e.getSource() == postContent) {
+		if (postTextArea.getText().length() <= charLimit) {
+			charRemain = charLimit - postTextArea.getText().length();
+			}
+		else {
+			charRemain = 0;
+			postTextArea.setText(postTextArea.getText().substring(0, charLimit));
+			}
+	}
+		*/
 	
 	public static void main(String[] args) {
 		BlogGUI blogGUI = new BlogGUI();
