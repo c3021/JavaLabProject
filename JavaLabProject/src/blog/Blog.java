@@ -17,6 +17,15 @@ public class Blog implements Serializable {
 
 	private User user;
 	private ArrayList<Post> allPosts;
+	private final String path;
+
+	/**
+	 * 
+	 * @return saving path
+	 */
+	public String getPath() {
+		return path;
+	}
 
 	/**
 	 * Constructor
@@ -26,6 +35,7 @@ public class Blog implements Serializable {
 	public Blog(User user) {
 		this.user = user;
 		allPosts = new ArrayList<Post>();// initialize the ArrayList
+		path = "E:\\eclipse\\LabRepo\\JavaLabProject\\src\\"+ user.getUserName() +".blog"; //set saving path
 	}
 
 	/**
@@ -97,7 +107,7 @@ public class Blog implements Serializable {
 			ois.close();
 		}
 		catch (FileNotFoundException e) {
-			System.out.println("Wait! There are something wrong. I cannot find the file..");
+			System.err.println("Wait! There are something wrong. I cannot find the file..");
 		}
 		catch (IOException e) {
 			e.printStackTrace();

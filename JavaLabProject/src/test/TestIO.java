@@ -40,7 +40,7 @@ public class TestIO {
 		
 		// *****************Task 1: save a blog to a file*************
 		System.out.println("\n***Saving the blog to an external file***");
-		String savefilepath="E:\\eclipse\\LabRepo\\JavaLabProject\\src\\"+user.getUserName()+".blog";
+		String savefilepath="E:\\eclipse\\LabRepo\\JavaLabProject\\src\\test\\"+user.getUserName()+".blog";
 		//if the path is not accessible, change it to any path you can access
 		System.out.println("File path: "+savefilepath);
 		blog.save(savefilepath);
