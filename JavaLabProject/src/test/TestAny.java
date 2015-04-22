@@ -17,7 +17,7 @@ public class TestAny {
 		System.out.println("a in method passBy after -- = " + a);
 	}
 	public interface a1 {
-		void i();
+		void i();int ii = 5;
 		int z(int a);
 	}
 	public interface b1 {
@@ -25,6 +25,7 @@ public class TestAny {
 		int z(int a);
 	}
 	public interface c1 {
+		int ii = 5; //<=> public static final int ii = 5;
 		int i();
 		int z(int a);
 	}
@@ -88,6 +89,7 @@ public class TestAny {
 		System.out.println(abc.c1);
 		abc.v1 =10;
 		abc.ret1();
+		System.out.println(abc.ii);
 		System.out.println(abc.pint());
 		System.out.println(abc.getClass());
 		System.out.println((abc.vt="S").getClass());
