@@ -30,12 +30,21 @@ public class Test {
 		strTree.getLeftChild()
 				.setRightChild(new GeneralTreeNode<String>("gui"));
 		System.out.println(strTree.getLeftChild().getRightChild().getData());
-
+		GeneralTreeNode<Double> doubTreeX = new GeneralTreeNode<Double>(0.02);
+		GeneralTreeNode<Double> doubTree1 = new GeneralTreeNode<Double>(0.02);
+		doubTree1.setLeftChild(new GeneralTreeNode<Double>(0.03));
+		doubTree1.setRightChild(doubTreeX);
+		GeneralTreeNode<Double> doubTree2 = new GeneralTreeNode<Double>(0.02);
+		doubTree2.setLeftChild(new GeneralTreeNode<Double>(0.04));
+		doubTree2.setRightChild(new GeneralTreeNode<Double>(0.03));
+		GeneralTreeNode<Double> doubTree3 = new GeneralTreeNode<Double>(0.02);
+		doubTree3.setLeftChild(doubTree1);
+		doubTree3.setRightChild(doubTree2);
 		boolean doubExist = doubTree.search(0.01);
 		boolean strExist = strTree.search("blog");
 		System.out.println(doubExist);
 		System.out.println(strExist);
-		System.out.println(doubTree.isSymmetric());
+		System.out.println(doubTree3.isSymmetric());
 	}
 
 }
