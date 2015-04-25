@@ -148,12 +148,15 @@ public class Blog implements Serializable {
 	 */
 	public void list() {
 		System.out.println("Current posts: ");
+		int i = 1;
+		for (Post p : allPosts) {
+			System.out.println("Post[" + i + "]: " + p);
+			i++;
+		}
+		/*
 		for (int i = 0; i < allPosts.size(); i++) {
 			System.out.println("Post[" + (i + 1) + "]: " + allPosts.get(i));
 		}
-
-		/*
-		 * for (Post p : allPosts){ System.out.println(p); }
 		 */
 	}
 

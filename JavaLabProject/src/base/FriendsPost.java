@@ -22,7 +22,7 @@ public class FriendsPost extends Post {
 	 * @param friend
 	 */
 	public void setFriend(User friend) {
-	this.friend = friend;
+		this.friend = friend;
 	}
 	
 	/**
@@ -30,7 +30,7 @@ public class FriendsPost extends Post {
 	 * @return
 	 */
 	public User getFriend() {
-	return friend;
+		return friend;
 	}
 
 	/**
