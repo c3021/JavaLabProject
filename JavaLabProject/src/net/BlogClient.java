@@ -7,6 +7,9 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Date;
+
+import base.Post;
 
 public class BlogClient {
 
@@ -91,7 +94,8 @@ public class BlogClient {
 			System.out.print("Send post: ");
 			br = new BufferedReader(inSR = new InputStreamReader(System.in));
 			post = br.readLine();
-			prWriter.println(post); // send post to Server
+			Post p = new Post(new Date(), post);
+			prWriter.println(p.toString()); // send post to Server
 		} catch (IOException e) {
 			e.printStackTrace();
 			return false;
