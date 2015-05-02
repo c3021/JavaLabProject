@@ -39,12 +39,11 @@ public class BlogClient {
 			
 			//bReader = new BufferedReader(inStreamR = new InputStreamReader(is = socket.getInputStream()));
 			bReader = new BufferedReader(inStreamR = new InputStreamReader(socket.getInputStream()));
-			
-			if (sendPost(prWriter))
-				System.out.println("Sent Successfully!");
-			else 
-				System.out.println("Nothing is sent!");
-			
+			String line = "";
+			while (sendPost(prWriter) 
+					&& (line = bReader.readLine()) != null) { // line = bReader.readLine()) != null throws Connection reset if Server down before this client close
+				System.out.println(line);
+			}
 		} catch (UnknownHostException e) {
 			System.err.println(e.getMessage());
 			System.out.println();
@@ -108,7 +107,7 @@ public class BlogClient {
 	}
 	
 	private static boolean sendPost(PrintWriter prWriter) {
-		String post;
+		String post = "";
 		BufferedReader br = null;
 		InputStreamReader inSR = null;
 		try {
@@ -116,15 +115,24 @@ public class BlogClient {
 			br = new BufferedReader(inSR = new InputStreamReader(System.in));
 			//while ((post = br.readLine()) != null) {
 			post = br.readLine();
-				//if (post.equals("end")) break;
-				Post p = new Post(new Date(), post); // create new Post
-				prWriter.println(p.toString()); // send post to Server
+			switch (post) {
+			case "quit":
+				prWriter.println(post);
+				prWriter.flush();
+				return false;
+			default:
+				prWriter.println(post);
+				prWriter.flush();
+				return true;
+			}
+				//Post p = new Post(new Date(), post); // create new Post
+				//prWriter.println(p.toString()); // send post to Server
 			//}
 		} catch (IOException e) {
 			e.printStackTrace();
 			return false;
 		} finally {
-			if (br != null) { //close the BufferedReader
+			if (post.equals("quit") && br != null) { //close the BufferedReader
 				try {
 					br.close();
 				} catch (IOException e) {
@@ -133,7 +141,7 @@ public class BlogClient {
 					e.printStackTrace();
 				}
 			}
-			if (inSR != null) { //close the InputStreamReader
+			if (post.equals("quit") && inSR != null) { //close the InputStreamReader
 				try {
 					inSR.close();
 				} catch (IOException e) {
@@ -143,6 +151,6 @@ public class BlogClient {
 				}
 			}
 		}
-		return true;
+//		return true;
 	}
 }
